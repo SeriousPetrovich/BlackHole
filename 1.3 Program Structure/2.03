@@ -7,4 +7,4 @@ DB 05
 start:
 MOV C,Date   
 MOV A,[C]	
-ADD A,[4]
+ADD A,[3]
