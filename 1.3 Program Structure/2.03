@@ -1,10 +1,10 @@
 ;Task: to add in the memory value of the day and month of your birth with the help of DB command, find their amount and store it in register A
 JMP start
 Date: 
-DB 21 
-DB 05	
+       DB 21 
+       DB 05	
 
 start:
-MOV C,Date   
-MOV A,[C]	
-ADD A,[3]
+       MOV C,Date   
+       MOV A,[C]	
+       ADD A,[3]
