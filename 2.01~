@@ -1,0 +1,4 @@
+;Task:to write to registers A and B the day and month of your birth
+MOV A, 21
+MOV B, 05
+

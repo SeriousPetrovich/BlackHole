@@ -1,0 +1,28 @@
+;Task:to print in the terminal the day and month of your birth
+JMP start
+BirthDay: 
+DB "21.05" 
+DB 0	
+
+start:
+MOV C, BirthDay   
+MOV D, 232	
+CALL print
+HLT             
+
+print:			
+PUSH A
+PUSH B
+MOV B, 0
+
+.loop:
+MOV A, [C]	
+MOV [D], A	
+INC C
+INC D  
+CMP B, [C]	
+JNZ .loop	
+
+POP B
+POP A
+RET

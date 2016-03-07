@@ -1,0 +1,9 @@
+JMP start
+Date: 
+DB 21 
+DB 05	
+
+start:
+MOV C,Date   
+MOV A,[C]	
+ADD A,[4]
