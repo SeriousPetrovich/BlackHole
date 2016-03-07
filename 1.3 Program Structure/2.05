@@ -1,0 +1,19 @@
+;Task: Write a program which prints arbitrary number in the terminal.	
+      JMP start
+Date:   DB "999"
+        DB 0	
+
+start:
+	MOV C, Date 
+	MOV D, 232
+        Call Portal
+        HLT	
+	
+Portal:
+	MOV A, [C]	
+	MOV [D], A	
+	INC C
+	INC D  
+	CMP B, [C]	
+	JNZ Portal	
+        RET
