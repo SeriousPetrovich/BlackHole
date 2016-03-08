@@ -1,7 +1,8 @@
 ;Task: to print in the terminal the day and month of your birth
 	JMP start
-Date:   DB "21/05"
-        DB 0	
+Date:   
+	DB "21/05"
+	DB 0	
 
 start:
 	MOV C, Date 
@@ -13,5 +14,5 @@ Portal:
 	INC C
 	INC D  
 	CMP B, [C]	
-	JNZ Portal	
-
+	JNZ Portal
+	HLT	

@@ -1,0 +1,97 @@
+;Task: Programm of factorial with his stages
+JMP start
+
+start:
+	MOV A,5; Number in input < 6
+	CMP A,5
+	JA error
+	push A
+	push A
+	ADD A,48
+	MOV [232],A
+	MOV [233],33
+	MOV [234],61
+	POP A
+        CMP A,2
+	JB level3
+	MOV D,49
+	MOV B,235
+	MOV C,236       
+level1:
+	MOV [B],D
+	MOV [C],42
+	DEC A
+	JZ level2
+	INC D
+	ADD B,2
+	ADD C,2
+	JMP level1	
+
+level2:
+	MOV [C],61
+	POP A
+	CMP A,6
+	JAE error
+	CMP A,1
+	JBE level3
+	MOV B,A HLT
+  .loop:
+	DEC B
+	JZ level4
+	MUL B
+	JMP .loop
+
+level4:
+	MOV B,A
+	DIV 100
+	PUSH A
+	MOV A,B
+	DIV 10
+	CMP A,9
+	JA podlevel1
+  podlevel2:
+	PUSH A
+	MUL 10
+	SUB B,A
+	PUSH B
+	JMP podlevel3
+  podlevel1:
+	SUB A,10
+	PUSH A
+	MOV A,B
+	DIV 10
+	MUL 10
+	SUB B,A
+	PUSH B
+  podlevel3:
+	POP C
+	POP B
+	POP A
+	ADD A,48
+	ADD B,48
+	ADD C,48
+	MOV [245],A
+	MOV [246],B
+	MOV [247],C
+	HLT
+
+level3:
+	MOV [235],49
+	HLT
+
+error:
+	JMP halflife3:
+db: 
+	DB "Error"
+	DB 0	
+halflife3:
+	MOV C, db
+	MOV D, 232	
+Portal3:
+	MOV A, [C]	
+	MOV [D], A	
+	INC C
+	INC D  
+	CMP B, [C]	
+	JNZ Portal3
+        HLT

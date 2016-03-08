@@ -1,13 +1,14 @@
 ;Task: Write a program which prints arbitrary number in the terminal.	
       JMP start
-Date:   DB "999"
-        DB 0	
+Date:   
+	DB "999"
+	DB 0	
 
 start:
 	MOV C, Date 
 	MOV D, 232
-        Call Portal
-        HLT	
+ 	Call Portal
+	HLT	
 	
 Portal:
 	MOV A, [C]	
@@ -16,4 +17,4 @@ Portal:
 	INC D  
 	CMP B, [C]	
 	JNZ Portal	
-        RET
+	RET

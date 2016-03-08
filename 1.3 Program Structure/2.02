@@ -1,5 +1,5 @@
 ;Task: to write to stack the value of the registers with the day and month of your birth
-       MOV A, 21
-       MOV B, 05
-       PUSH A
-       PUSH B
+	MOV A, 21
+	MOV B, 05
+	PUSH A
+	PUSH B

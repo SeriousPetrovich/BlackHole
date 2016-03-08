@@ -2,22 +2,19 @@
 JMP start
 
 start:
-	MOV A,1; Number in input < 6
-level1: 
-	CMP A,6
-	JAE error
-
-level2:
-	CMP A,1
-	JBE level3
+	MOV A,0; Number in input < 6
+	CMP A,5
+	JA error
+	CMP A,2
+	JB level3
 	MOV B,A
  .loop:
 	DEC B
-	JZ level4
+	JZ level2
 	MUL B
 	JMP .loop
 
-level4:
+level2:
 	MOV B,A
 	DIV 100
 	PUSH A
@@ -58,8 +55,7 @@ level3:
 
 error:
 	JMP halflife3:
-db: 
-	DB "Error"
+db:     DB "Error"
 	DB 0	
 halflife3:
 	MOV C, db
