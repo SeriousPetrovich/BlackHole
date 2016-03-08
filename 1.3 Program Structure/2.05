@@ -1,20 +1,43 @@
 ;Task: Write a program which prints arbitrary number in the terminal.	
-      JMP start
-Date:   
-	DB "999"
-	DB 0	
-
+JMP start
 start:
-	MOV C, Date 
-	MOV D, 232
- 	Call Portal
-	HLT	
-	
-Portal:
-	MOV A, [C]	
-	MOV [D], A	
-	INC C
-	INC D  
-	CMP B, [C]	
-	JNZ Portal	
-	RET
+	MOV A, 255; number in input <= 255
+	MOV B, A
+	DIV 100
+	PUSH A
+	MOV A, B
+	DIV 10
+	MOV C, A
+	DIV 10
+	MUL 10
+	SUB C, A
+	PUSH C
+	MOV A, B
+	DIV 10
+	MUL 10
+	SUB B, A
+	PUSH B
+	POP C
+	POP B
+	POP A
+	CMP A,0
+	JZ star1
+	ADD A,48
+	MOV [232],A
+	ADD B,48
+	MOV [233],B
+	ADD C,48
+	MOV [234],C
+	HLT
+star1:
+	CMP B,0
+	JZ star2
+	ADD B,48
+	MOV [232],B
+	ADD C,48
+	MOV [233],C
+	HLT
+star2:
+	ADD C,48
+	MOV [232],C
+	HLT
