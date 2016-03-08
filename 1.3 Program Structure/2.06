@@ -2,8 +2,7 @@
 JMP start
 
 start:
-	MOV A,6; Number in input
-
+	MOV A,1; Number in input < 6
 level1: 
 	CMP A,6
 	JAE error
@@ -60,7 +59,7 @@ level3:
 error:
 	JMP halflife3:
 db: 
-	DB "Error!'A'must be <6"
+	DB "Error"
 	DB 0	
 halflife3:
 	MOV C, db
