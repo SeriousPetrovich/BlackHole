@@ -1,15 +1,12 @@
 ;Task: Programm of Factorial
 JMP start
+
 start:
 	MOV A,6; Number in input
-	CMP A,0
-	JB error
-	JNC level1
 
 level1: 
 	CMP A,6
 	JAE error
-	JMP level2
 
 level2:
 	CMP A,1
