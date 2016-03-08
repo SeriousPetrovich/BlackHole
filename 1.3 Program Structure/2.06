@@ -2,7 +2,7 @@
 JMP start
 
 start:
-	MOV A,0; Number in input < 6
+	MOV A,5; Number in input < 6
 	CMP A,5
 	JA error
 	CMP A,2
@@ -40,12 +40,26 @@ level2:
 	POP C
 	POP B
 	POP A
+	CMP A,0
+	JZ star1
 	ADD A,48
-	ADD B,48
-	ADD C,48
 	MOV [232],A
+	ADD B,48
 	MOV [233],B
+	ADD C,48
 	MOV [234],C
+	HLT
+star1:
+	CMP B,0
+	JZ star2
+	ADD B,48
+	MOV [232],B
+	ADD C,48
+	MOV [233],C
+	HLT
+star2:
+	ADD C,48
+	MOV [232],C
 	HLT
 
 level3:
