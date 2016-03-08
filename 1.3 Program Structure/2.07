@@ -67,12 +67,26 @@ level4:
 	POP C
 	POP B
 	POP A
+	CMP A,0
+	JZ star1
 	ADD A,48
-	ADD B,48
-	ADD C,48
 	MOV [245],A
+	ADD B,48
 	MOV [246],B
+	ADD C,48
 	MOV [247],C
+	HLT
+star1:
+	CMP B,0
+	JZ star2
+	ADD B,48
+	MOV [245],B
+	ADD C,48
+	MOV [246],C
+	HLT
+star2:
+	ADD C,48
+	MOV [245],C
 	HLT
 
 level3:
