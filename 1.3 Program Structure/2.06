@@ -16,6 +16,27 @@ factorial:
 	JMP .loop
 ret: RET
 
+level3:
+	MOV A,49
+	MOV [232],A
+	RET
+
+error:
+	JMP halflife3:
+db:     DB "Error"
+	DB 0	
+halflife3:
+	MOV C, db
+	MOV D, 232	
+Portal3:
+	MOV A, [C]	
+	MOV [D], A	
+	INC C
+	INC D  
+	CMP B, [C]	
+	JNZ Portal3
+        RET
+
 number:
 	MOV B, A
 	DIV 100
@@ -55,25 +76,4 @@ star1:
 star2:
 	ADD C,48
 	MOV [232],C
-        RET
-
-level3:
-	MOV A,49
-	MOV [232],A
-	RET
-
-error:
-	JMP halflife3:
-db:     DB "Error"
-	DB 0	
-halflife3:
-	MOV C, db
-	MOV D, 232	
-Portal3:
-	MOV A, [C]	
-	MOV [D], A	
-	INC C
-	INC D  
-	CMP B, [C]	
-	JNZ Portal3
         RET
