@@ -7,7 +7,7 @@ factorial:
 	CMP A,5
 	JA error
 	CMP A,2
-	JB level3
+	JB zerone
 	MOV B,A
  .loop:
 	DEC B
@@ -16,10 +16,10 @@ factorial:
 	JMP .loop
 ret: RET
 
-level3:
+zerone:
 	MOV A,49
 	MOV [232],A
-	RET
+	HLT
 
 error:
 	JMP halflife3:
@@ -35,7 +35,7 @@ Portal3:
 	INC D  
 	CMP B, [C]	
 	JNZ Portal3
-        RET
+        HLT
 
 number:
 	MOV B, A
