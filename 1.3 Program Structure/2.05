@@ -1,5 +1,6 @@
 ;Task: Write a program which prints arbitrary number in the terminal.	
-JMP start
+CALL start
+HLT
 start:
 	MOV A, 255; number in input <= 255
 	MOV B, A
@@ -40,4 +41,5 @@ star1:
 star2:
 	ADD C,48
 	MOV [232],C
-	HLT
+        RET
+
