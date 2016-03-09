@@ -1,8 +1,8 @@
 ;Task: Programm of Factorial
-JMP start
-
-start:
 	MOV A,5; Number in input < 6
+CALL factorial
+HLT
+factorial:
 	CMP A,5
 	JA error
 	CMP A,2
@@ -48,7 +48,7 @@ level2:
 	MOV [233],B
 	ADD C,48
 	MOV [234],C
-	HLT
+	RET
 star1:
 	CMP B,0
 	JZ star2
@@ -56,16 +56,16 @@ star1:
 	MOV [232],B
 	ADD C,48
 	MOV [233],C
-	HLT
+	RET
 star2:
 	ADD C,48
 	MOV [232],C
-	HLT
+	RET
 
 level3:
 	MOV A,49
 	MOV [232],A
-	HLT
+	RET
 
 error:
 	JMP halflife3:
@@ -81,4 +81,4 @@ Portal3:
 	INC D  
 	CMP B, [C]	
 	JNZ Portal3
-        HLT
+        RET
