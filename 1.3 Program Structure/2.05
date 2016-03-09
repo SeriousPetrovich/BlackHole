@@ -1,8 +1,9 @@
 ;Task: Write a program which prints arbitrary number in the terminal.	
-CALL start
-HLT
-start:
+
 	MOV A, 255; number in input <= 255
+        CALL start
+        HLT
+        start:
 	MOV B, A
 	DIV 100
 	PUSH A
@@ -29,7 +30,7 @@ start:
 	MOV [233],B
 	ADD C,48
 	MOV [234],C
-	HLT
+	RET
 star1:
 	CMP B,0
 	JZ star2
@@ -37,7 +38,7 @@ star1:
 	MOV [232],B
 	ADD C,48
 	MOV [233],C
-	HLT
+        RET
 star2:
 	ADD C,48
 	MOV [232],C
