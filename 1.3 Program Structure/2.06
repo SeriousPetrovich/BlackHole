@@ -1,6 +1,7 @@
 ;Task: Programm of Factorial
 	MOV A,5; Number in input < 6
 CALL factorial
+CALL number
 HLT
 factorial:
 	CMP A,5
@@ -10,33 +11,27 @@ factorial:
 	MOV B,A
  .loop:
 	DEC B
-	JZ level2
+	JZ ret
 	MUL B
 	JMP .loop
+ret: RET
 
-level2:
-	MOV B,A
+number:
+	MOV B, A
 	DIV 100
 	PUSH A
-	MOV A,B
+	MOV A, B
 	DIV 10
-	CMP A,9
-	JA podlevel1
- podlevel2:
-	PUSH A
-	MUL 10
-	SUB B,A
-	PUSH B
-	JMP podlevel3
- podlevel1:
-	SUB A,10
-	PUSH A
-	MOV A,B
+	MOV C, A
 	DIV 10
 	MUL 10
-	SUB B,A
+	SUB C, A
+	PUSH C
+	MOV A, B
+	DIV 10
+	MUL 10
+	SUB B, A
 	PUSH B
- podlevel3:
 	POP C
 	POP B
 	POP A
@@ -56,11 +51,11 @@ star1:
 	MOV [232],B
 	ADD C,48
 	MOV [233],C
-	RET
+        RET
 star2:
 	ADD C,48
 	MOV [232],C
-	RET
+        RET
 
 level3:
 	MOV A,49
