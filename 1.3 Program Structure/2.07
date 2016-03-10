@@ -1,6 +1,6 @@
 ;Task: Programm of factorial with his stages
 
-MOV A,6; Number in input < 6
+MOV A,1; Number in input < 6
 CALL stages
 CALL factorial
 CALL number
@@ -9,6 +9,9 @@ HLT
 stages:
 	CMP A,5
 	JA error
+        CMP A,0
+	JZ zero
+next:
 	push A
 	push A
 	ADD A,48
@@ -16,8 +19,6 @@ stages:
 	MOV [233],33
 	MOV [234],61
 	POP A
-        CMP A,2
-	JB zerone
 	MOV D,49
 	MOV B,235
 	MOV C,236       
@@ -43,10 +44,9 @@ factorial:
 	MUL B
 	JMP .loop
 ret: RET
-zerone:
-	MOV A,49
-	MOV [235],A
-	HLT
+zero:
+	MOV A,1
+	JMP next
 error:
 	JMP halflife3:
 db:     DB "Error"
