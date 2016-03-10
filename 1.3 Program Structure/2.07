@@ -11,13 +11,13 @@ stages:
 	JA error
         CMP A,0
 	JZ zero
-next:
-	push A
+        push A
 	push A
 	ADD A,48
 	MOV [232],A
 	MOV [233],33
 	MOV [234],61
+next:
 	POP A
 	MOV D,49
 	MOV B,235
@@ -45,7 +45,13 @@ factorial:
 	JMP .loop
 ret: RET
 zero:
+	ADD A,48
+	MOV [232],A
+	MOV [233],33
+	MOV [234],61
 	MOV A,1
+	push A
+	push A
 	JMP next
 error:
 	JMP halflife3:
