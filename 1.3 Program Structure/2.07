@@ -1,19 +1,24 @@
 ;Task: Programm of factorial with his stages
-JMP start
 
-start:
-	MOV A,5; Number in input < 6
+MOV A,1; Number in input < 6
+CALL stages
+CALL factorial
+CALL number
+HLT
+
+stages:
 	CMP A,5
 	JA error
-	push A
+        CMP A,0
+	JZ zero
+        push A
 	push A
 	ADD A,48
 	MOV [232],A
 	MOV [233],33
 	MOV [234],61
+next:
 	POP A
-        CMP A,2
-	JB level3
 	MOV D,49
 	MOV B,235
 	MOV C,236       
@@ -26,63 +31,31 @@ level1:
 	ADD B,2
 	ADD C,2
 	JMP level1	
-
 level2:
 	MOV [C],61
 	POP A
-	CMP A,6
-	JAE error
-	CMP A,1
-	JBE level3
-	MOV B,A HLT
-  .loop:
+        RET
+
+factorial:
+	MOV B,A
+ .loop:
 	DEC B
-	JZ level4
+	JZ ret
 	MUL B
 	JMP .loop
-
-level4:
-	MOV B,A
-	DIV 100
-	PUSH A
-	MOV A,B
-	DIV 10
-	CMP A,9
-	JA podlevel1
-  podlevel2:
-	PUSH A
-	MUL 10
-	SUB B,A
-	PUSH B
-	JMP podlevel3
-  podlevel1:
-	SUB A,10
-	PUSH A
-	MOV A,B
-	DIV 10
-	MUL 10
-	SUB B,A
-	PUSH B
-  podlevel3:
-	POP C
-	POP B
-	POP A
+ret: RET
+zero:
 	ADD A,48
-	ADD B,48
-	ADD C,48
-	MOV [245],A
-	MOV [246],B
-	MOV [247],C
-	HLT
-
-level3:
-	MOV [235],49
-	HLT
-
+	MOV [232],A
+	MOV [233],33
+	MOV [234],61
+	MOV A,1
+	push A
+	push A
+	JMP next
 error:
 	JMP halflife3:
-db: 
-	DB "Error"
+db:     DB "Error"
 	DB 0	
 halflife3:
 	MOV C, db
@@ -95,3 +68,44 @@ Portal3:
 	CMP B, [C]	
 	JNZ Portal3
         HLT
+
+number:
+	MOV B, A
+	DIV 100
+	PUSH A
+	MOV A, B
+	DIV 10
+	MOV C, A
+	DIV 10
+	MUL 10
+	SUB C, A
+	PUSH C
+	MOV A, B
+	DIV 10
+	MUL 10
+	SUB B, A
+	PUSH B
+	POP C
+	POP B
+	POP A
+	CMP A,0
+	JZ star1
+	ADD A,48
+	MOV [245],A
+	ADD B,48
+	MOV [246],B
+	ADD C,48
+	MOV [247],C
+	RET
+star1:
+	CMP B,0
+	JZ star2
+	ADD B,48
+	MOV [245],B
+	ADD C,48
+	MOV [246],C
+        RET
+star2:
+	ADD C,48
+	MOV [245],C
+        RET
