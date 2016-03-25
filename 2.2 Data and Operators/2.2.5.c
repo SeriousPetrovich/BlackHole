@@ -13,9 +13,9 @@ int main(void)
 	mul=number1*number2;
 	divi=number1/number2;
 	printf("This is their:\n");
-	printf("Sum            = %d\n",summ);
-	printf("Difference     = %d\n",diff);
-	printf("Multiplication = %d\n",mul);
-	printf("Division       = %f\n",divi);
+	printf("%.0f + %.0f = %d\n", number1, number2, summ);
+	printf("%.0f - %.0f = %d\n", number1, number2, diff);
+	printf("%.0f * %.0f = %d\n", number1, number2, mul);
+	printf("%.0f / %.0f = %f\n", number1, number2, divi);
 	return 0;
 }
