@@ -3,24 +3,14 @@
 int main(void) 
 {
 	printf("Number of bytes in:\n\n");
-	printf("Char         	   = 1;\n");
-	printf("Signed char   	   = 1;\n");
-	printf("Unsigned char 	   = 1;\n\n");
-	printf("Short        	   = 2;\n");
-	printf("Unsigned short	   = 2;\n");
-	printf("Signed short  	   = 2;\n\n");
-	printf("Int          	   = 2 or 4;\n");
-	printf("Unsigned int 	   = 2 or 4;\n");
-	printf("Signed int	   = 2 or 4;\n\n");
-	printf("Long               = 4;\n");
-	printf("Unsigned long      = 4;\n");
-	printf("Signed long        = 4;\n\n");
-	printf("Long long          = 8;\n");
-	printf("Unsigned long long = 8;\n");
-	printf("Signed long long   = 8;\n\n");
-	printf("Float		   = 4;\n");
-	printf("Double 		   = 8;\n");
-	printf("Long double 	   = 10.\n");
+	printf("Char         	   = %zd;\n",sizeof (char));
+	printf("Short        	   = %zd;\n",sizeof (short));
+	printf("Int          	   = %zd;\n",sizeof (int));
+	printf("Long               = %zd;\n",sizeof (long));
+	printf("Long long          = %zd;\n",sizeof (long long));
+	printf("Float		   = %zd;\n",sizeof (float));
+	printf("Double 		   = %zd;\n",sizeof (double));
+	printf("Long double 	   = %zd.\n",sizeof (long double));
 	return 0;
 }
 
