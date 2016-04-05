@@ -2,7 +2,7 @@
 
 int main() 
 {
-	int a = 2, b = 6, c=9, m, n=0;
+	int a = 3, b = 5, c=9, m, n=0;
 	printf("Please, enter your sequence of your length = ");
     scanf("%d",&m);
     printf("It is your length of pseudo-random numbers from your %d: \n",m);

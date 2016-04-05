@@ -5,6 +5,6 @@ int main()
 	char string[254];
 	printf("Please, enter a random string : ");
 	gets(string);
-	printf("In your string %d bytes",strlen(string));
+	printf("In your string %zd bytes",strlen(string));
 	return 0;
 }
