@@ -29,9 +29,7 @@ int main()
 	assert(e>=0);
 	assert(f>=0);
 	assert(g>=0);
-	printf("This is your word in upper register:\n");
-	printf("%s",text);
-	for (h=0;h!=a;h++){printf(")");}
+	for (h=0;h!=a;h++){printf("b\r)");}
 	for (o=0;o!=b;o++){printf("]");}
 	for (j=0;j!=c;j++){printf("}");}
 	for (k=0;k!=d;k++){printf(">");}
