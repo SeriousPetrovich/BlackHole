@@ -1,40 +1,57 @@
 #include <stdio.h>
-#include <assert.h>
-
-int main()
+ 
+int a=0,b=0,c=0;
+ int dop(char symbol)
+   {   
+    switch (symbol)
+      {   
+        case '(' : return  1;
+        case '[' : return  2;
+        case '{' : return  3;
+        case '<' : return  4;
+        case ')' : return -1;
+        case ']' : return -2;
+        case '}' : return -3;
+        case '>' : return -4;  
+        case(char)34 :                
+        a=((a == 0)?1:0);                                
+        return((a==0)?-5:5);
+        case(char)39:                 
+        b =((b== 0)?1:0); 
+        return((b==0)?-6:6);
+        case(char)96:                 
+        c =((c==0)?1:0); 
+        return((c==0)?-7:7); 
+        default:return 0;
+      }
+   } 
+int main(void)
 {
-	int i=0,a=0,b=0,c=0,d=0,e=0,f=0,g=0,h,o,j,k,l,m,n;
-	char text[255];
-	printf("Please, enter a random word in lower register:\n");
-	scanf("%s", text);
-	while (text[i] != 0)
-	{
-		if (text[i]=='(') a++;
-		if (text[i]==')') a--;
-		if (text[i]=='[') b++;
-		if (text[i]==']') b--;
-		if (text[i]=='{') c++;
-		if (text[i]=='}') c--;
-		if (text[i]=='<') d++;
-		if (text[i]=='>') d--;
-		if (text[i]=='"') e++;
-		if (text[i]==39) f++;
-		if (text[i]=='`') g++;
-		i++;
-	}
-	assert(a>=0);
-	assert(b>=0);
-	assert(c>=0);
-	assert(d>=0);
-	assert(e>=0);
-	assert(f>=0);
-	assert(g>=0);
-	for (h=0;h!=a;h++){printf("b\r)");}
-	for (o=0;o!=b;o++){printf("]");}
-	for (j=0;j!=c;j++){printf("}");}
-	for (k=0;k!=d;k++){printf(">");}
-	if (e%2!=0){for (l=0;l!=e;l++){printf("\"");}}
-	if (f%2!=0){for (m=0;m!=f;m++){printf("\'");}}
-	if (g%2!=0){for (n=0;n!=g;n++){printf("`");}}
-	return 0;
+    char line[255],d;
+    int s[255];
+    int Dop,i=0,found=0,j=0;
+    printf("Пожалуйста, введите произвольную строку:");
+    scanf("%s",line);
+    do
+    {   d=line[j++];
+        Dop=dop(d);
+        if(Dop>0)
+         {   s[i]=Dop;
+             i++;
+         }
+             if(Dop<0)
+             {     if(i>0 && (s[i-1]+Dop)==0)
+                   i--;
+                   else
+                {   found=1;
+                    break;
+                }
+            }
+    }
+    while (d);
+        if(!i && !found)
+        printf("Баланс соблюден");
+        else
+        printf("Баланс не соблюден"); 
+        return 0;
 }
